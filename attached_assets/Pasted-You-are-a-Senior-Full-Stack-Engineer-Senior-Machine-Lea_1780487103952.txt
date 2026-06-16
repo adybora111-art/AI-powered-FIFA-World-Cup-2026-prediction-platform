@@ -1,0 +1,323 @@
+You are a Senior Full-Stack Engineer, Senior Machine Learning Engineer, Senior UI/UX Designer, Data Scientist, and Sports Analytics Expert.
+
+Build a production-grade FIFA World Cup Prediction Platform that looks and feels like a real commercial sports analytics product, not a student project, template, dashboard clone, or AI-generated toy application.
+
+====================================================
+PROJECT GOAL
+====================================================
+
+Create an AI-powered FIFA World Cup Winner Prediction Platform that predicts the most likely tournament winner using real machine learning principles and professional sports analytics methodologies.
+
+The system must provide:
+
+1. Professional Frontend
+2. Professional Backend
+3. Real Machine Learning Pipeline
+4. Real Data Processing Pipeline
+5. Real Probability Calculations
+6. Advanced Visualizations
+7. Immersive Animations
+8. Recruiter-Level Code Quality
+9. Portfolio-Level Design
+10. Production-Level Architecture
+
+The final product should feel similar to a premium sports analytics platform used by broadcasters, betting analysts, scouts, and football analysts.
+
+====================================================
+FRONTEND REQUIREMENTS
+====================================================
+
+Technology Stack:
+
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Three.js
+- React Three Fiber
+- Chart.js or Recharts
+
+UI/UX Requirements:
+
+Do NOT create:
+
+- Generic dashboards
+- Basic cards
+- Default Tailwind templates
+- Cartoon designs
+- School project layouts
+- Bootstrap-style interfaces
+
+Create:
+
+- FIFA-inspired premium design
+- Dark luxury theme
+- Stadium atmosphere
+- Dynamic lighting
+- Professional typography
+- Responsive layout
+- Mobile friendly design
+
+Homepage Sections:
+
+1. Hero Section
+
+Include:
+
+- FIFA World Cup inspired visual
+- Animated stadium background
+- Dynamic lighting effects
+- Rotating 3D trophy
+- Team logos
+- Countdown timer
+- Call to action
+
+2. Tournament Analytics Section
+
+Display:
+
+- Team rankings
+- Team strengths
+- Probability charts
+- Historical statistics
+- Qualification information
+
+3. Prediction Engine Section
+
+Users can:
+
+- Select tournament
+- Select teams
+- Run AI Prediction
+
+4. Machine Learning Visualization Section
+
+When prediction starts:
+
+DO NOT immediately display result.
+
+Create a cinematic sequence showing:
+
+- Data ingestion
+- Data cleaning
+- Feature engineering
+- Model training
+- Ensemble calculation
+- Probability generation
+
+Use:
+
+- Animated nodes
+- Neural network style connections
+- Rotating gears
+- Data pipelines
+- Floating particles
+- Machine intelligence visual effects
+
+The user should feel like a real AI system is analyzing football data.
+
+5. Prediction Result Screen
+
+After processing:
+
+Show:
+
+- Predicted winner
+- Trophy animation
+- Probability percentage
+- Confidence score
+- Top contenders ranking
+
+Example:
+
+Portugal
+Prediction Probability: 34.8%
+
+France
+Prediction Probability: 27.1%
+
+Argentina
+Prediction Probability: 22.6%
+
+Brazil
+Prediction Probability: 15.5%
+
+Winner Reveal Animation:
+
+- Stadium lights activate
+- Camera zoom
+- Trophy rises
+- Confetti animation
+- Crowd effects
+- Team flag animation
+
+Optional:
+
+Generate AI celebration scene using available assets.
+
+====================================================
+BACKEND REQUIREMENTS
+====================================================
+
+Technology Stack:
+
+- Python
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Redis (optional)
+- Docker
+
+Backend must be properly structured:
+
+backend/
+├── api/
+├── models/
+├── services/
+├── ml/
+├── database/
+├── utils/
+├── analytics/
+└── tests/
+
+Follow clean architecture principles.
+
+No giant files.
+
+No 1000-line components.
+
+Code should look human-written and maintainable.
+
+====================================================
+MACHINE LEARNING REQUIREMENTS
+====================================================
+
+IMPORTANT:
+
+Do NOT create fake prediction logic.
+
+Do NOT randomly generate winners.
+
+Do NOT hardcode probabilities.
+
+The model must genuinely calculate probabilities.
+
+Use:
+
+1. Logistic Regression
+2. Random Forest
+3. Gradient Boosting / XGBoost
+
+Create an Ensemble Model.
+
+Example:
+
+Final Prediction Score:
+
+35% XGBoost
+35% Random Forest
+30% Logistic Regression
+
+Use proper ML pipeline:
+
+Data Collection
+→ Cleaning
+→ Feature Engineering
+→ Training
+→ Validation
+→ Prediction
+
+====================================================
+DATA FEATURES
+====================================================
+
+Use football-related features such as:
+
+- FIFA Ranking
+- Elo Rating
+- Goals Scored
+- Goals Conceded
+- Win Rate
+- Recent Form
+- World Cup History
+- Continental Tournament Results
+- Average Squad Age
+- Market Value
+- Clean Sheets
+- Goal Difference
+- Possession %
+- Shot Conversion Rate
+
+Create meaningful features.
+
+====================================================
+MODEL EVALUATION
+====================================================
+
+Include:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Cross Validation
+
+Display evaluation metrics in admin analytics.
+
+====================================================
+ANALYTICS DASHBOARD
+====================================================
+
+Create professional visualizations:
+
+- Team comparison charts
+- Win probability charts
+- Historical trends
+- Feature importance graphs
+- Model confidence graphs
+
+====================================================
+CODE QUALITY REQUIREMENTS
+====================================================
+
+Generate code like an experienced software engineer.
+
+Requirements:
+
+- Modular architecture
+- Small reusable components
+- Meaningful variable names
+- Proper comments
+- Type safety
+- Error handling
+- API validation
+- Production-ready folder structure
+
+Avoid:
+
+- Massive AI-generated files
+- Unnecessarily long code
+- Repeated logic
+- Copy-pasted code
+
+The code should look like it was written by a skilled developer over time.
+
+====================================================
+PORTFOLIO IMPACT GOAL
+====================================================
+
+The final project should make recruiters think:
+
+"This candidate understands:
+
+- Frontend Engineering
+- Backend Engineering
+- Machine Learning
+- Data Science
+- UI/UX Design
+- System Design
+- Sports Analytics"
+
+The project must feel like a startup product, not a college assignment.
+
+Generate the complete architecture, folder structure, development roadmap, database schema, API design, ML pipeline, frontend design system, and implementation plan before writing code.

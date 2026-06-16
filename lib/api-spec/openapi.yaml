@@ -1,0 +1,763 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: FIFA World Cup Prediction Platform API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: teams
+    description: Team data and statistics
+  - name: predictions
+    description: AI prediction engine
+  - name: analytics
+    description: Analytics and visualizations
+  - name: model
+    description: ML model metadata and metrics
+
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /teams:
+    get:
+      operationId: listTeams
+      tags: [teams]
+      summary: List all national teams
+      description: Returns all teams with their football statistics
+      responses:
+        "200":
+          description: List of teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Team"
+
+  /teams/{id}:
+    get:
+      operationId: getTeam
+      tags: [teams]
+      summary: Get team details
+      description: Returns full details and stats for a single team
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Team detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TeamDetail"
+        "404":
+          description: Team not found
+
+  /teams/rankings:
+    get:
+      operationId: getTeamRankings
+      tags: [teams]
+      summary: Get team rankings
+      description: Returns teams sorted by composite ranking score
+      responses:
+        "200":
+          description: Ranked teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TeamRanking"
+
+  /predictions/run:
+    post:
+      operationId: runPrediction
+      tags: [predictions]
+      summary: Run AI prediction
+      description: Runs the ensemble ML model to predict the World Cup winner
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PredictionInput"
+      responses:
+        "200":
+          description: Prediction result with probabilities
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PredictionResult"
+
+  /predictions/history:
+    get:
+      operationId: getPredictionHistory
+      tags: [predictions]
+      summary: Get recent predictions
+      description: Returns the last N predictions run by users
+      responses:
+        "200":
+          description: Prediction history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PredictionSummary"
+
+  /analytics/comparison:
+    post:
+      operationId: compareTeams
+      tags: [analytics]
+      summary: Compare two or more teams
+      description: Returns a head-to-head statistical comparison
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ComparisonInput"
+      responses:
+        "200":
+          description: Team comparison data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ComparisonResult"
+
+  /analytics/win-probability:
+    get:
+      operationId: getWinProbabilities
+      tags: [analytics]
+      summary: Get win probabilities for all teams
+      description: Returns pre-computed win probabilities for all qualified teams
+      responses:
+        "200":
+          description: Win probability data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WinProbability"
+
+  /analytics/historical-trends:
+    get:
+      operationId: getHistoricalTrends
+      tags: [analytics]
+      summary: Get historical tournament trends
+      description: Returns historical World Cup winner data and trend lines
+      responses:
+        "200":
+          description: Historical trend data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HistoricalTrends"
+
+  /model/metrics:
+    get:
+      operationId: getModelMetrics
+      tags: [model]
+      summary: Get ML model evaluation metrics
+      description: Returns accuracy, precision, recall, F1, and cross-validation scores
+      responses:
+        "200":
+          description: Model metrics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelMetrics"
+
+  /model/feature-importance:
+    get:
+      operationId: getFeatureImportance
+      tags: [model]
+      summary: Get feature importance scores
+      description: Returns the relative importance of each feature in the ensemble model
+      responses:
+        "200":
+          description: Feature importance data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FeatureImportance"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    Team:
+      type: object
+      required:
+        - id
+        - name
+        - code
+        - confederation
+        - fifaRanking
+        - eloRating
+        - winRate
+        - recentForm
+        - worldCupWins
+        - flagEmoji
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+          description: 3-letter country code
+        confederation:
+          type: string
+          enum: [UEFA, CONMEBOL, CONCACAF, CAF, AFC, OFC]
+        fifaRanking:
+          type: integer
+        eloRating:
+          type: number
+        winRate:
+          type: number
+          description: Win rate 0-1
+        recentForm:
+          type: number
+          description: Recent form score 0-100
+        worldCupWins:
+          type: integer
+        flagEmoji:
+          type: string
+        marketValueMillions:
+          type: ["number", "null"]
+        avgSquadAge:
+          type: ["number", "null"]
+
+    TeamDetail:
+      type: object
+      required:
+        - id
+        - name
+        - code
+        - confederation
+        - fifaRanking
+        - eloRating
+        - winRate
+        - recentForm
+        - worldCupWins
+        - flagEmoji
+        - goalsScored
+        - goalsConceded
+        - cleanSheets
+        - goalDifference
+        - possessionPct
+        - shotConversionRate
+        - continentalTitles
+        - qualificationRecord
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        confederation:
+          type: string
+        fifaRanking:
+          type: integer
+        eloRating:
+          type: number
+        winRate:
+          type: number
+        recentForm:
+          type: number
+        worldCupWins:
+          type: integer
+        flagEmoji:
+          type: string
+        goalsScored:
+          type: number
+        goalsConceded:
+          type: number
+        cleanSheets:
+          type: integer
+        goalDifference:
+          type: number
+        possessionPct:
+          type: number
+        shotConversionRate:
+          type: number
+        continentalTitles:
+          type: integer
+        qualificationRecord:
+          type: string
+        marketValueMillions:
+          type: ["number", "null"]
+        avgSquadAge:
+          type: ["number", "null"]
+        strengths:
+          type: array
+          items:
+            type: string
+        weaknesses:
+          type: array
+          items:
+            type: string
+
+    TeamRanking:
+      type: object
+      required:
+        - rank
+        - teamId
+        - name
+        - code
+        - flagEmoji
+        - compositeScore
+        - fifaRanking
+        - eloRating
+        - winProbability
+      properties:
+        rank:
+          type: integer
+        teamId:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        flagEmoji:
+          type: string
+        compositeScore:
+          type: number
+        fifaRanking:
+          type: integer
+        eloRating:
+          type: number
+        winProbability:
+          type: number
+
+    PredictionInput:
+      type: object
+      required:
+        - tournamentYear
+      properties:
+        tournamentYear:
+          type: integer
+          description: World Cup year (e.g. 2026)
+        selectedTeamIds:
+          type: array
+          items:
+            type: integer
+          description: Optional subset of team IDs to include
+
+    PredictionResult:
+      type: object
+      required:
+        - winner
+        - topContenders
+        - modelBreakdown
+        - processingSteps
+        - timestamp
+      properties:
+        winner:
+          $ref: "#/components/schemas/ContenderResult"
+        topContenders:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContenderResult"
+        modelBreakdown:
+          $ref: "#/components/schemas/ModelBreakdown"
+        processingSteps:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProcessingStep"
+        confidenceScore:
+          type: ["number", "null"]
+        timestamp:
+          type: string
+
+    ShapInsight:
+      type: object
+      required:
+        - feature
+        - contribution
+        - impact
+        - description
+        - rawValue
+        - direction
+      properties:
+        feature:
+          type: string
+        contribution:
+          type: number
+        impact:
+          type: string
+          enum: [high, medium, low]
+        description:
+          type: string
+        rawValue:
+          type: string
+        direction:
+          type: string
+          enum: [positive, negative, neutral]
+
+    ContenderResult:
+      type: object
+      required:
+        - teamId
+        - name
+        - code
+        - flagEmoji
+        - probability
+        - rank
+      properties:
+        teamId:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        flagEmoji:
+          type: string
+        probability:
+          type: number
+        rank:
+          type: integer
+        logisticRegressionScore:
+          type: ["number", "null"]
+        randomForestScore:
+          type: ["number", "null"]
+        gradientBoostScore:
+          type: ["number", "null"]
+        shapInsights:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShapInsight"
+        compositeStrengths:
+          type: array
+          items:
+            type: string
+        compositeWeaknesses:
+          type: array
+          items:
+            type: string
+
+    ModelBreakdown:
+      type: object
+      required:
+        - logisticRegressionWeight
+        - randomForestWeight
+        - gradientBoostWeight
+        - totalSamples
+        - featuresUsed
+      properties:
+        logisticRegressionWeight:
+          type: number
+        randomForestWeight:
+          type: number
+        gradientBoostWeight:
+          type: number
+        totalSamples:
+          type: integer
+        featuresUsed:
+          type: array
+          items:
+            type: string
+
+    ProcessingStep:
+      type: object
+      required:
+        - step
+        - label
+        - durationMs
+        - status
+      properties:
+        step:
+          type: integer
+        label:
+          type: string
+        durationMs:
+          type: integer
+        status:
+          type: string
+          enum: [pending, processing, complete]
+        detail:
+          type: ["string", "null"]
+
+    PredictionSummary:
+      type: object
+      required:
+        - id
+        - winnerName
+        - winnerCode
+        - winnerFlagEmoji
+        - winnerProbability
+        - tournamentYear
+        - timestamp
+      properties:
+        id:
+          type: integer
+        winnerName:
+          type: string
+        winnerCode:
+          type: string
+        winnerFlagEmoji:
+          type: string
+        winnerProbability:
+          type: number
+        tournamentYear:
+          type: integer
+        timestamp:
+          type: string
+
+    ComparisonInput:
+      type: object
+      required:
+        - teamIds
+      properties:
+        teamIds:
+          type: array
+          items:
+            type: integer
+          minItems: 2
+          maxItems: 4
+
+    ComparisonResult:
+      type: object
+      required:
+        - teams
+        - radarData
+        - headToHead
+      properties:
+        teams:
+          type: array
+          items:
+            $ref: "#/components/schemas/TeamDetail"
+        radarData:
+          type: array
+          items:
+            $ref: "#/components/schemas/RadarDataPoint"
+        headToHead:
+          type: array
+          items:
+            $ref: "#/components/schemas/HeadToHeadRecord"
+
+    RadarDataPoint:
+      type: object
+      required:
+        - metric
+        - values
+      properties:
+        metric:
+          type: string
+        values:
+          type: object
+          additionalProperties:
+            type: number
+
+    HeadToHeadRecord:
+      type: object
+      required:
+        - teamA
+        - teamB
+        - teamAWins
+        - teamBWins
+        - draws
+      properties:
+        teamA:
+          type: string
+        teamB:
+          type: string
+        teamAWins:
+          type: integer
+        teamBWins:
+          type: integer
+        draws:
+          type: integer
+
+    WinProbability:
+      type: object
+      required:
+        - teamId
+        - name
+        - code
+        - flagEmoji
+        - probability
+        - eloRating
+        - fifaRanking
+      properties:
+        teamId:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        flagEmoji:
+          type: string
+        probability:
+          type: number
+        eloRating:
+          type: number
+        fifaRanking:
+          type: integer
+
+    HistoricalTrends:
+      type: object
+      required:
+        - pastWinners
+        - confederationWins
+        - repeatChampions
+      properties:
+        pastWinners:
+          type: array
+          items:
+            $ref: "#/components/schemas/PastWinner"
+        confederationWins:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConfederationWins"
+        repeatChampions:
+          type: array
+          items:
+            $ref: "#/components/schemas/RepeatChampion"
+
+    PastWinner:
+      type: object
+      required:
+        - year
+        - country
+        - code
+        - flagEmoji
+        - venue
+      properties:
+        year:
+          type: integer
+        country:
+          type: string
+        code:
+          type: string
+        flagEmoji:
+          type: string
+        venue:
+          type: string
+
+    ConfederationWins:
+      type: object
+      required:
+        - confederation
+        - wins
+        - percentage
+      properties:
+        confederation:
+          type: string
+        wins:
+          type: integer
+        percentage:
+          type: number
+
+    RepeatChampion:
+      type: object
+      required:
+        - country
+        - code
+        - flagEmoji
+        - totalWins
+        - years
+      properties:
+        country:
+          type: string
+        code:
+          type: string
+        flagEmoji:
+          type: string
+        totalWins:
+          type: integer
+        years:
+          type: array
+          items:
+            type: integer
+
+    ModelMetrics:
+      type: object
+      required:
+        - accuracy
+        - precision
+        - recall
+        - f1Score
+        - crossValidationScore
+        - logisticRegression
+        - randomForest
+        - gradientBoost
+      properties:
+        accuracy:
+          type: number
+        precision:
+          type: number
+        recall:
+          type: number
+        f1Score:
+          type: number
+        crossValidationScore:
+          type: number
+        logisticRegression:
+          $ref: "#/components/schemas/SubModelMetrics"
+        randomForest:
+          $ref: "#/components/schemas/SubModelMetrics"
+        gradientBoost:
+          $ref: "#/components/schemas/SubModelMetrics"
+
+    SubModelMetrics:
+      type: object
+      required:
+        - name
+        - accuracy
+        - weight
+      properties:
+        name:
+          type: string
+        accuracy:
+          type: number
+        weight:
+          type: number
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+
+    FeatureImportance:
+      type: object
+      required:
+        - feature
+        - importance
+        - description
+      properties:
+        feature:
+          type: string
+        importance:
+          type: number
+        description:
+          type: string

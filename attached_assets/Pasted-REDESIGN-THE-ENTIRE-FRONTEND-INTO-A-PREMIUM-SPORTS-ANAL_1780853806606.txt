@@ -1,0 +1,131 @@
+REDESIGN THE ENTIRE FRONTEND INTO A PREMIUM SPORTS ANALYTICS EXPERIENCE.
+
+ASSETS AVAILABLE:
+
+1. Hero Trophy Image
+
+   * Use as homepage opening section.
+   * Full screen.
+   * Apply subtle 3D parallax movement based on mouse position.
+   * Add floating golden particles.
+   * Add slight camera zoom animation.
+   * Trophy should feel alive, not static.
+   * Dark overlay for readability.
+
+2. Stadium Night Image
+
+   * Use as background for Prediction Engine section.
+   * Apply blur and dark overlay.
+   * Add floating holographic data cards.
+   * Create depth using layered parallax.
+
+3. Football Analytics Command Center Image
+
+   * Use as Compare and Analytics page hero.
+   * This becomes the visual identity of the AI model.
+   * Overlay live prediction metrics.
+   * Add glowing blue-gold borders.
+
+4. Trophy + AI Hologram Image
+
+   * Use in About AI section.
+   * Explain model architecture.
+   * Add animated neural network lines.
+   * Add subtle holographic motion.
+
+WINNER SYSTEM:
+
+After prediction finishes:
+
+Step 1:
+Show cinematic loading sequence.
+
+Analyzing Team Strength...
+Calculating Offensive Metrics...
+Calculating Defensive Metrics...
+Running Random Forest...
+Running Ensemble Model...
+Generating SHAP Explanation...
+Computing Tournament Probability...
+Final Prediction Ready...
+
+Duration:
+6-8 seconds.
+
+Step 2:
+Reveal winner with full screen transition.
+
+Winner image database:
+
+1 France
+2 Spain
+3 Argentina
+4 Brazil
+5 Portugal
+6 Germany
+7 Netherlands
+8 Belgium
+9 Uruguay
+10 Croatia
+11 Italy
+12 Switzerland
+13 Morocco
+14 Japan
+15 Mexico
+
+When winner is France:
+display France celebration image.
+
+When winner is Spain:
+display Spain celebration image.
+
+Same logic for all teams.
+
+WINNER SCREEN:
+
+Large country flag.
+
+Large celebration image.
+
+Country name.
+
+Tournament win probability.
+
+Confidence score.
+
+Animated confetti.
+
+Gold spotlight effect.
+
+"Predicted World Champion"
+
+Button:
+Run Another Prediction.
+
+INTERACTIONS:
+
+Cards should tilt slightly on hover.
+
+Buttons should have premium glow.
+
+Smooth transitions everywhere.
+
+Use Framer Motion.
+
+Use modern sports broadcast style.
+
+Use glassmorphism.
+
+Use blue + gold color palette.
+
+Add subtle stadium atmosphere particles.
+
+Add premium loading screens.
+
+Never show plain dark empty backgrounds.
+
+Every section must contain motion, depth and atmosphere.
+
+Goal:
+
+The website should feel like a professional FIFA analytics company product, not a student project.

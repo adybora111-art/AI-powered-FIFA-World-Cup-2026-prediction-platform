@@ -1,0 +1,121 @@
+WINNER REVEAL UI IMPROVEMENT
+
+IMPORTANT:
+
+The winner reveal section already uses custom team images and full team celebration photos that have been manually provided and curated for each national team.
+
+DO NOT replace these images.
+
+DO NOT cover these images.
+
+DO NOT overlay large flags on top of team photos.
+
+DO NOT place flags in a way that blocks faces, players, trophy celebrations, or existing artwork.
+
+====================================================
+
+IMAGE PRIORITY RULE
+
+Priority Order:
+
+1. Team Celebration Image (Highest Priority)
+2. Team Name
+3. Win Probability
+4. National Flag
+5. Additional Effects
+
+The team image must remain the primary visual focus.
+
+====================================================
+
+FLAG PLACEMENT
+
+Use flags as supporting visual elements only.
+
+Acceptable placements:
+
+* Top-left corner badge
+* Top-right corner badge
+* Beside team name
+* Small floating flag chip
+* Winner information panel
+
+Example:
+
+🇫🇷 France
+Predicted Champion
+Win Probability: 23.9%
+
+The flag should enhance the design, not dominate it.
+
+====================================================
+
+WINNER SCREEN LAYOUT
+
+Keep the existing winner image as the hero element.
+
+Example Layout:
+
+---
+
+|                              |
+|   TEAM CELEBRATION PHOTO     |
+|                              |
+--------------------------------
+
+🇫🇷 France
+
+Predicted Champion
+
+Win Probability: 23.9%
+
+Model Confidence: 81%
+
+Key Reasons:
+
+* Strong recent form
+* Elite attack
+* Excellent squad depth
+
+The image must remain fully visible.
+
+====================================================
+
+ANIMATION RULES
+
+Allowed:
+
+* Flag fade-in
+* Flag glow
+* Flag wave animation
+* Small floating flag particles
+* Subtle flag motion
+
+Not Allowed:
+
+* Full-screen flag overlays
+* Giant flag backgrounds
+* Flags covering player photos
+* Flags replacing team images
+* Flags reducing image visibility
+
+====================================================
+
+RESPONSIVE DESIGN
+
+On desktop and mobile:
+
+* Team photo remains dominant
+* Flag scales appropriately
+* Layout remains clean
+* No overlap with image content
+
+====================================================
+
+FINAL GOAL
+
+The winner reveal should feel like a FIFA broadcast.
+
+The custom team celebration image should remain the centerpiece.
+
+The national flag should act as a premium supporting visual element that enhances the presentation without disturbing, hiding, replacing, or competing with the existing team image.

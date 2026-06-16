@@ -1,0 +1,157 @@
+HERO SECTION FINAL REDESIGN
+
+The FIFA Prediction AI image must become the entire hero section.
+
+Do NOT use a split-screen layout.
+
+Do NOT place the image inside a card.
+
+Do NOT restrict the image to the right side.
+
+The image should cover the entire first screen.
+
+Height: 100vh
+
+Width: 100%
+
+Background-size: cover
+
+Background-position: center
+
+The image already contains:
+
+* Trophy
+* Stadium
+* FIFA branding
+* AI visual elements
+
+Therefore:
+
+Remove the large "WORLD CUP PREDICTOR" heading completely.
+
+Do not add any extra trophies.
+
+Do not add any rotating trophies.
+
+Do not add any 3D trophy models.
+
+The existing trophy inside the image is the main visual centerpiece.
+
+Use only a very subtle dark overlay (5–10%) if required for readability.
+
+Keep the image quality unchanged.
+
+Keep image brightness and saturation almost unchanged.
+
+Overlay content directly on top of the image.
+
+Layout:
+
+Top:
+Navbar
+
+Top Right:
+Current Favourite Card
+
+Example:
+
+France
+23.9%
+Current Favourite
+
+Lower Left:
+
+USA • CANADA • MEXICO • 2026
+
+Below:
+
+AI Model Tags
+
+[Ensemble ML]
+[Random Forest]
+[Logistic Regression]
+[SHAP Explainability]
+
+Below:
+
+Glassmorphism Countdown Card
+
+Below:
+
+Primary Button
+
+⚡ Run AI Simulation
+
+Secondary Button
+
+View Analytics
+
+Animations:
+
+Subtle mouse parallax.
+
+Very light floating particles.
+
+Soft glow around the existing trophy area.
+
+Smooth fade-in on page load.
+
+No aggressive animations.
+
+No extra visual clutter.
+
+When scrolling:
+
+Hero section smoothly transitions into the next section.
+
+Prediction Section:
+Use Stadium Night image.
+
+Analytics Section:
+Use Football Analytics Command Center image.
+
+About AI Section:
+Use Trophy + AI Hologram image.
+
+Prediction Result Flow:
+
+Show loading sequence:
+
+Analyzing Teams...
+Calculating Attack Ratings...
+Calculating Defensive Metrics...
+Running Ensemble Model...
+Generating SHAP Analysis...
+Final Prediction Ready...
+
+Then display the corresponding celebration image based on predicted champion:
+
+France
+Spain
+Argentina
+Brazil
+Portugal
+Germany
+Netherlands
+Belgium
+Uruguay
+Croatia
+Italy
+Switzerland
+Morocco
+Japan
+Mexico
+
+Display:
+
+Winner celebration image
+Country flag
+Country name
+Tournament win probability
+Model confidence score
+
+Use premium transitions and confetti effects.
+
+Goal:
+
+The website should feel like a professional FIFA World Cup AI analytics platform rather than a student project.

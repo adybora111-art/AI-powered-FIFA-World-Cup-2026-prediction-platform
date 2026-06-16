@@ -1,0 +1,402 @@
+You are a Senior Machine Learning Engineer, Data Scientist, Sports Analytics Expert, Full Stack Architect, and Product Designer.
+
+I already have a working FIFA World Cup AI Prediction Platform.
+
+DO NOT rebuild the project.
+
+DO NOT redesign everything from scratch.
+
+Your task is to upgrade the existing project into a portfolio-level, recruiter-impressing AI and Machine Learning platform.
+
+====================================================
+PRIMARY OBJECTIVE
+====================================================
+
+The project must no longer feel like a statistics dashboard.
+
+It must feel like a genuine football intelligence platform that uses machine learning, explainable AI, simulations, advanced analytics, and data science to predict tournament outcomes.
+
+When recruiters see the project, they should immediately recognize:
+
+- Machine Learning
+- Data Science
+- AI Engineering
+- Sports Analytics
+- Full Stack Development
+- System Design
+- Explainable AI
+
+====================================================
+ML CREDIBILITY IMPROVEMENTS
+====================================================
+
+Currently the platform displays predictions.
+
+Now prove the predictions are real.
+
+Add a dedicated:
+
+MODEL PERFORMANCE DASHBOARD
+
+Display:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
+- Cross Validation Score
+- Training Samples
+- Validation Samples
+- Feature Count
+
+Example:
+
+Accuracy: 78.2%
+Precision: 76.4%
+Recall: 74.8%
+F1 Score: 75.6%
+Cross Validation: 77.1%
+
+Visualize these metrics professionally.
+
+====================================================
+DATASET EXPLORER
+====================================================
+
+Create a Dataset Explorer section.
+
+Display:
+
+- Total Matches
+- Teams
+- Years Covered
+- Features Used
+- Training Samples
+
+Example:
+
+Matches: 5,421
+Teams: 64
+Years: 1998-2026
+Features: 25
+Samples: 10,000+
+
+Add:
+
+- Dataset summary
+- Feature descriptions
+- Data quality indicators
+
+The platform should prove that it is trained on actual football data.
+
+====================================================
+FEATURE IMPORTANCE
+====================================================
+
+Expand Explainable AI.
+
+Add:
+
+SHAP Feature Importance Dashboard
+
+Display:
+
+- Elo Rating Importance
+- Recent Form Importance
+- Goal Difference Importance
+- Defensive Stability Importance
+- Squad Value Importance
+- Possession Importance
+
+Visualize:
+
+- SHAP waterfall plots
+- Feature contribution bars
+- Positive and negative influences
+
+Example:
+
+France:
++ Recent Form
++ Goal Difference
++ Elo Rating
+
+- Defensive Injuries
+- Tough Tournament Path
+
+====================================================
+AI REASONING ENGINE
+====================================================
+
+Do not only show probabilities.
+
+Show WHY.
+
+Example:
+
+France Prediction Analysis:
+
++ Highest recent form score
++ Elite attacking efficiency
++ Excellent defensive record
++ Strong squad depth
+
+Risk Factors:
+
+- Difficult knockout bracket
+- Injury concerns
+
+Final Win Probability:
+23.9%
+
+Model Confidence:
+81%
+
+====================================================
+MONTE CARLO SIMULATION ENGINE
+====================================================
+
+Add a true tournament simulator.
+
+Run:
+
+1000
+5000
+10000
+
+virtual World Cups.
+
+Generate:
+
+France:
+24.2%
+
+Spain:
+18.1%
+
+Portugal:
+15.7%
+
+Argentina:
+12.4%
+
+Display:
+
+- Simulation counts
+- Probability distributions
+- Confidence intervals
+
+This should become one of the core ML features.
+
+====================================================
+MATCH SIMULATOR
+====================================================
+
+Create:
+
+TEAM VS TEAM AI SIMULATOR
+
+Example:
+
+France vs Portugal
+
+Run 10,000 simulations.
+
+Output:
+
+France Win: 54%
+Portugal Win: 38%
+Draw: 8%
+
+Display:
+
+- Attack comparison
+- Defence comparison
+- Momentum comparison
+- Predicted scorelines
+
+Example:
+
+Most likely scores:
+
+2-1
+1-0
+2-2
+3-1
+
+====================================================
+PLAYER LEVEL ANALYTICS
+====================================================
+
+Add player influence analysis.
+
+Example:
+
+Portugal
+
+Bruno Fernandes
+Impact Score: 8.9
+
+Bernardo Silva
+Impact Score: 8.5
+
+Vitinha
+Impact Score: 8.3
+
+Display:
+
+- Player contribution scores
+- Squad depth ratings
+- Key player influence
+
+====================================================
+INJURY IMPACT ANALYSIS
+====================================================
+
+Create:
+
+What-if Analysis
+
+Example:
+
+With Star Player:
+
+Win Probability:
+27.3%
+
+Without Star Player:
+
+Win Probability:
+20.1%
+
+Show probability changes.
+
+====================================================
+CURRENT FORM PRIORITY
+====================================================
+
+The current model must prioritize present-day football strength.
+
+Reduce weight of:
+
+- Historical trophies
+- Old World Cup wins
+- Legacy achievements
+
+Increase weight of:
+
+- Last 5 Matches
+- Last 10 Matches
+- Last 20 Matches
+- Current Squad Strength
+- Current Player Form
+- Current Goal Difference
+- Current Defensive Metrics
+- Current Momentum
+
+Historical achievements should contribute no more than 10–15%.
+
+Recent form should contribute at least 60–70%.
+
+====================================================
+ADVANCED TEAM ANALYTICS
+====================================================
+
+Expand team analytics.
+
+Include:
+
+ATTACK
+
+- Goals per Match
+- xG
+- Shot Conversion
+- Big Chances Created
+
+DEFENCE
+
+- Goals Against
+- xGA
+- Clean Sheets
+- Defensive Stability
+
+FORM
+
+- Last 5 Matches
+- Last 10 Matches
+- Last 20 Matches
+- Momentum Score
+
+SQUAD
+
+- Market Value
+- Average Age
+- Experience Index
+- Depth Score
+
+====================================================
+PREDICTION CONFIDENCE
+====================================================
+
+Every prediction must show:
+
+Win Probability:
+23.9%
+
+Model Confidence:
+81%
+
+Prediction Stability:
+High
+
+====================================================
+VISUALIZATION UPGRADES
+====================================================
+
+Add:
+
+- Radar Charts
+- Feature Importance Charts
+- Simulation Charts
+- Team Comparison Charts
+- Probability Distribution Charts
+- Tournament Path Visualizations
+- Confidence Gauges
+
+Use professional sports analytics styling.
+
+====================================================
+PROJECT PRESENTATION
+====================================================
+
+The project should feel similar to:
+
+- Opta Analyst
+- StatsBomb
+- FiveThirtyEight Sports
+- ESPN Analytics
+- FIFA Analytics Platforms
+
+Avoid:
+
+- Generic dashboards
+- Placeholder charts
+- Fake AI visuals
+- Static probability generators
+
+====================================================
+FINAL GOAL
+====================================================
+
+Transform the project from a football prediction website into a professional AI-powered football intelligence platform.
+
+The result should be impressive enough that a recruiter immediately believes the developer understands:
+
+Machine Learning,
+Data Science,
+Explainable AI,
+Statistical Modelling,
+Sports Analytics,
+Full Stack Engineering,
+and Production-Level Software Design.

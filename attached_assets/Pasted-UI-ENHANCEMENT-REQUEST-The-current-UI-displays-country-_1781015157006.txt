@@ -1,0 +1,147 @@
+UI ENHANCEMENT REQUEST
+
+The current UI displays country abbreviations such as:
+
+ESP
+FRA
+POR
+ARG
+GER
+BRA
+
+This feels too technical and less immersive.
+
+Replace all country abbreviation boxes with official national flags and proper country branding.
+
+====================================================
+
+TEAM CARD IMPROVEMENTS
+
+Instead of:
+
+ESP
+Spain
+
+Display:
+
+🇪🇸 Spain
+
+Instead of:
+
+POR
+Portugal
+
+Display:
+
+🇵🇹 Portugal
+
+Instead of:
+
+FRA
+France
+
+Display:
+
+🇫🇷 France
+
+====================================================
+
+VISUAL REQUIREMENTS
+
+Use:
+
+- High-quality SVG flags
+- Official country flags
+- Circular flag badges
+- Animated flag hover effects
+- Subtle glow effects
+- Smooth transitions
+
+Flags should be the primary visual identity, not text abbreviations.
+
+====================================================
+
+TEAM SELECTION PAGE
+
+Each team card should contain:
+
+- Country Flag
+- Country Name
+- Confederation
+- FIFA Ranking
+- AI Power Score
+
+Example:
+
+🇵🇹 Portugal
+UEFA
+FIFA Rank #6
+AI Power Score: 87
+
+====================================================
+
+PREDICTION RESULTS PAGE
+
+When showing predictions:
+
+Display:
+
+🇫🇷 France
+23.9%
+
+instead of:
+
+FRA
+23.9%
+
+====================================================
+
+WINNER REVEAL
+
+If a team is predicted as winner:
+
+Show:
+
+- Large animated national flag
+- Country name
+- Team crest (if available)
+- Confetti in national colors
+- Stadium lighting matching national colors
+
+Example:
+
+🇵🇹 PORTUGAL
+
+Predicted Champion
+Win Probability: 18.7%
+
+====================================================
+
+TOURNAMENT FAVOURITES SECTION
+
+Replace all abbreviation-only cards with:
+
+Flag + Team Name + Probability
+
+Current:
+
+ESP 16.1%
+
+Improved:
+
+🇪🇸 Spain
+16.1%
+
+====================================================
+
+OPTIONAL PREMIUM FEATURES
+
+Add:
+
+- Flag waving animation
+- 3D flag reveal
+- Flag particle effects
+- Country color accents
+- Hover tooltip with country information
+
+The overall experience should feel like a FIFA broadcast, not a data table.
