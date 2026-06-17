@@ -103,8 +103,9 @@ function MonteCarloPanelInner() {
 
   const run = useCallback(async () => {
     setRunning(true); setError(null);
-    try {
-      const res = await fetch("/api/analytics/monte-carlo", {
+     try {
+      const apiBase = import.meta.env.PROD ? "https://ai-powered-fifa-world-cup-2026.onrender.com" : "";
+      const res = await fetch(`${apiBase}/api/analytics/monte-carlo`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ simulations: simCount }),
       });
