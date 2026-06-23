@@ -905,6 +905,12 @@ export default function Analytics() {
           </div>
         </div>
 
+        {/* Live Form Trend */}
+        <div className="mb-14 p-6 rounded-2xl border border-border bg-card">
+          <SectionHeader eyebrow="Live Tracking" title="Win Probability Over Time" subtitle="Updates automatically as real World Cup results come in" />
+          <LiveFormTrendChart />
+        </div>
+
       </div>
     </main>
   );
