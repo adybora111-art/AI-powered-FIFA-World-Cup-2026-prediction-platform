@@ -30,3 +30,16 @@ export const teamsTable = pgTable("teams", {
 export const insertTeamSchema = createInsertSchema(teamsTable).omit({ id: true });
 export type InsertTeam = z.infer<typeof insertTeamSchema>;
 export type Team = typeof teamsTable.$inferSelect;
+// ─── Form History — daily snapshots for the live trend chart ──────────────
+
+export const formHistoryTable = pgTable("form_history", {
+  id: serial("id").primaryKey(),
+  teamId: integer("team_id").notNull(),
+  date: text("date").notNull(), // e.g. "2026-06-16"
+  recentForm: real("recent_form").notNull(),
+  winProbability: real("win_probability").notNull(),
+  note: text("note").notNull().default(""), // e.g. "Drew 0-0 vs Cape Verde"
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export type FormHistoryEntry = typeof formHistoryTable.$inferSelect;

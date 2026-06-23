@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   useGetTeamRankings,
@@ -10,7 +10,7 @@ import {
 import commandCenterImg from "@assets/Futuristic_football_analytics_co…_202606072216_1780851279933.jpeg";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  PieChart, Pie, Cell, Legend, ErrorBar,
+  PieChart, Pie, Cell, Legend, ErrorBar, LineChart, Line,
 } from "recharts";
 
 const GOLD   = "#D4AF37";
@@ -521,7 +521,75 @@ function ModelPerformanceDashboard({ metrics }: { metrics: any }) {
 }
 
 // ─── Main page ─────────────────────────────────────────────────────────────
+// ─── Live Form Trend Chart ─────────────────────────────────────────────────
 
+interface FormTrendPoint { date: string; probability: number; recentForm: number }
+interface FormTrendSeries { teamId: number; name: string; code: string; flagEmoji: string; points: FormTrendPoint[] }
+
+const TREND_COLORS = [GOLD, BLUE, PURPLE, PINK, GREEN, "#F59E0B", "#EF4444", "#06B6D4"];
+
+function LiveFormTrendChart() {
+  const [data, setData] = useState<{ dates: string[]; series: FormTrendSeries[] } | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const apiBase = import.meta.env.PROD ? "https://ai-powered-fifa-world-cup-2026.onrender.com" : "";
+    fetch(`${apiBase}/api/analytics/form-trend`)
+      .then(r => r.json())
+      .then(setData)
+      .catch(() => setData(null))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <div className="h-80 animate-pulse bg-border/20 rounded-xl" />;
+
+  if (!data || data.dates.length === 0) {
+    return (
+      <div className="h-52 flex flex-col items-center justify-center gap-3 border border-dashed border-border/40 rounded-xl">
+        <div className="text-4xl">📈</div>
+        <div className="text-center">
+          <p className="text-white/60 font-display text-sm">No live results recorded yet</p>
+          <p className="text-muted-foreground text-xs mt-1">Probabilities will update here as real tournament results come in</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Reshape into one row per date, one column per team code, for a multi-line chart
+  const top8 = [...data.series].sort((a, b) => {
+    const aLast = a.points[a.points.length - 1]?.probability ?? 0;
+    const bLast = b.points[b.points.length - 1]?.probability ?? 0;
+    return bLast - aLast;
+  }).slice(0, 8);
+
+  const chartData = data.dates.map(date => {
+    const row: Record<string, string | number> = { date };
+    top8.forEach(s => {
+      const point = s.points.find(p => p.date === date);
+      if (point) row[s.code] = parseFloat((point.probability * 100).toFixed(2));
+    });
+    return row;
+  });
+
+  return (
+    <div>
+      <ResponsiveContainer width="100%" height={340}>
+        <LineChart data={chartData} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+          <XAxis dataKey="date" tick={{ fill: "#94A3B8", fontSize: 10, fontFamily: "Rajdhani" }} axisLine={{ stroke: "#1A2744" }} tickLine={false} />
+          <YAxis tick={{ fill: "#94A3B8", fontSize: 10 }} axisLine={false} tickLine={false} tickFormatter={v => `${v}%`} />
+          <Tooltip contentStyle={{ background: "#0D1626", border: "1px solid #1A2744", borderRadius: 8 }} />
+          <Legend formatter={v => <span style={{ color: "#94A3B8", fontSize: 11 }}>{v}</span>} />
+          {top8.map((s, i) => (
+            <Line key={s.code} type="monotone" dataKey={s.code} stroke={TREND_COLORS[i % TREND_COLORS.length]} strokeWidth={2} dot={{ r: 3 }} connectNulls />
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+      <p className="text-muted-foreground text-xs mt-3">
+        Win probability over time as real tournament results are factored into each team's current form.
+      </p>
+    </div>
+  );
+}
 export default function Analytics() {
   const { data: rankings }    = useGetTeamRankings();
   const { data: probabilities } = useGetWinProbabilities();
@@ -657,9 +725,10 @@ export default function Analytics() {
           )}
         </div>
 
-        {/* Monte Carlo Simulation Panel */}
-        <div className="mb-14">
-          <MonteCarloPanelInner />
+       {/* Live Form Trend */}
+        <div className="mb-14 p-6 rounded-2xl border border-border bg-card">
+          <SectionHeader eyebrow="Live Tracking" title="Win Probability Over Time" subtitle="Updates as real tournament results are applied" />
+          <LiveFormTrendChart />
         </div>
 
         {/* Feature importance + SHAP */}
